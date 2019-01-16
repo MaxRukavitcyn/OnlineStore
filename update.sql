@@ -1,6 +1,9 @@
 /* CREATE DATABASE store; */
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS items CASCADE;
+DROP SEQUENCE IF EXISTS item_id_seq CASCADE ;
+DROP SEQUENCE IF EXISTS user_id_seq CASCADE ;
+
 CREATE TABLE items (
   item_id bigint NOT NULL,
   item_name text NOT NULL,
