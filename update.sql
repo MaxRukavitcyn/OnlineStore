@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS items CASCADE;
 CREATE TABLE items (
   item_id bigint NOT NULL,
   item_name text NOT NULL,
-  item_price text NOT NULL,
+  item_price bigint NOT NULL,
   status boolean,
   PRIMARY KEY (item_id)
 );
