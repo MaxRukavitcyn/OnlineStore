@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>JQueryTest</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        	$('#getitems').click(function () {
+		        $.get("/items").done(function (data) {
+                    console.log(data.responseText)
+		        }).fail(function (data) {
+                    alert(data.responseText)
+		        })
+	        })
+        });
+
+		function myAlert() {
+			var login = $('#login').val();
+			var password = $('#password').val();
+			// alert(login);
+			// alert(password);
+			$('#div2').text('asdasdasd');
+			console.log('hello')
+		}
+
+		function myFunc() {
+			var div1 = $('#div1');
+			div1.text('hello from jquery');
+			$('<p> hello once again </p>').insertAfter('#div1');
+			// var val = div1.text();
+			// alert(val);
+
+
+		}
+    </script>
+</head>
+
+<body>
+<div id="div1">
+    Hello World!
+</div>
+
+<input type="text" id="login" name="login">
+<input type="password" id="password" name="password">
+<button type="button" onclick="myAlert()" id="butSubmit"> submit</button>
+<br>
+
+<button type="button" onclick="myFunc()" id="butHello" name="button">push me</button>
+<br>
+<button type="button" id="getitems"  name="getItems" >get items</button>
+<div id="div2"></div>
+
+</body>
+</html>
