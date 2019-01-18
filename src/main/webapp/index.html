@@ -7,11 +7,13 @@
     <script>
         $(document).ready(function () {
         	$('#getitems').click(function () {
-		        $.get("/items").done(function (data) {
-                    console.log(data.responseText)
-		        }).fail(function (data) {
-                    alert(data.responseText)
-		        })
+		        $.get("/items").done(function (data, status) {
+                    console.log(data);
+                    for(var i=0; i<data.length; i++){
+	                    $('<p>'+data[i].name+' колличество '+data[i].count+' цена: '+data[i].price+'</p>').insertAfter('#div2');
+                    }
+
+		        });
 	        })
         });
 
