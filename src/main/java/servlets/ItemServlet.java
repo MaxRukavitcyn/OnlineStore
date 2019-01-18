@@ -3,8 +3,6 @@ package servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pojos.ItemPojo;
 import services.ItemService;
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,15 +40,12 @@ public class ItemServlet extends HttpServlet {
 
         req.setCharacterEncoding("UTF-8");
         ObjectMapper objectMapper = new ObjectMapper();
-
         String body = itemService.getBody(req);
-        ItemPojo itemPojo1 = objectMapper.readValue(body, ItemPojo.class);
         try {
-            itemService.addItem(itemPojo1);
+            itemService.addItem(objectMapper.readValue(body, ItemPojo.class));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(body);
     }
 
     @Override
@@ -66,9 +61,8 @@ public class ItemServlet extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         String body = itemService.getBody(req);
-        ItemPojo itemPojo = objectMapper.readValue(body, ItemPojo.class);
         try {
-            itemService.updateItem(itemPojo);
+            itemService.updateItem(objectMapper.readValue(body, ItemPojo.class));
         } catch (SQLException e) {
             e.printStackTrace();
         }
