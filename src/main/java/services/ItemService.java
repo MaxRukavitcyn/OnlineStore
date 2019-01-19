@@ -18,6 +18,7 @@ public class ItemService {
         String body = null;
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = null;
+        request.setCharacterEncoding("UTF-8");
 
         try {
             InputStream inputStream = request.getInputStream();

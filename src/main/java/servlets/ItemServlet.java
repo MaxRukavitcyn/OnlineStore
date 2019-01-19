@@ -31,7 +31,7 @@ public class ItemServlet extends HttpServlet {
                 System.out.println(pojo.getName());
             }
         } catch (SQLException e) {
-
+            throw new RuntimeException(e);
         }
     }
 
@@ -44,7 +44,7 @@ public class ItemServlet extends HttpServlet {
         try {
             itemService.addItem(objectMapper.readValue(body, ItemPojo.class));
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -53,7 +53,7 @@ public class ItemServlet extends HttpServlet {
         try {
             itemService.deleteItem(Long.valueOf(req.getParameter("id")));
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
@@ -64,8 +64,7 @@ public class ItemServlet extends HttpServlet {
         try {
             itemService.updateItem(objectMapper.readValue(body, ItemPojo.class));
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-
     }
 }

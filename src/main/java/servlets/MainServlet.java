@@ -14,3 +14,4 @@ public class MainServlet extends HttpServlet {
         resp.getWriter().write("Welcome to OnlineStore!!!");
     }
 }
+
