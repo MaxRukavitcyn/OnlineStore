@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
+    <div>Hello: ${user.name}</div>
 </body>
 </html>
