@@ -38,7 +38,7 @@ public class ItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        req.setCharacterEncoding("UTF-8");
+//        req.setCharacterEncoding("UTF-16");
         ObjectMapper objectMapper = new ObjectMapper();
         String body = itemService.getBody(req);
         try {

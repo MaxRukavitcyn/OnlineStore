@@ -8,15 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/")
+@WebServlet("/store")
 public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-//        resp.getWriter().write("Welcome to OnlineStore!!!");
-        RequestDispatcher view = req.getRequestDispatcher("pages/store.jsp");
-        view.forward(req,resp);
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/store.html");
+        System.out.println(getServletContext().getContextPath());
+        requestDispatcher.forward(req,resp);
     }
 }
 

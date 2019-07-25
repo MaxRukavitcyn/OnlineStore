@@ -1,6 +1,7 @@
 package servlets;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +13,8 @@ import java.io.IOException;
 public class TestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-        RequestDispatcher view = req.getRequestDispatcher("pages/test.jsp");
-        view.forward(req,resp);
+        ServletContext servletContext = getServletContext();
+        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/pages/test.html");
+        requestDispatcher.forward(req, resp);
     }
 }
