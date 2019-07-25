@@ -1,5 +1,7 @@
 package pojos;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class UserPojo {
 
     private long id;
@@ -64,5 +66,10 @@ public class UserPojo {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "{name: \""+this.name+"\", lastName: \"" + this.lastName +"\"}";
     }
 }

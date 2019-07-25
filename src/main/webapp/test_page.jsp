@@ -11,6 +11,13 @@
     <title>Title</title>
 </head>
 <body>
-    <div>Hello: ${user.name}</div>
+<div ${user.setLastName("Hand")}>
+    <div>Hello: ${user.name} ${user.lastName}</div>
+</div>
+<script>
+    window.user = {};
+    user = ${user.toString()};
+
+</script>
 </body>
 </html>
