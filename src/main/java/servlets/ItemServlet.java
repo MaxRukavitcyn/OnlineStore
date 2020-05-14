@@ -2,6 +2,7 @@ package servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pojos.ItemPojo;
+import services.AppProperties;
 import services.ItemService;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,7 @@ public class ItemServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        System.out.println(AppProperties.getProp("test.test"));
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 
@@ -38,7 +40,7 @@ public class ItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        req.setCharacterEncoding("UTF-8");
+//        req.setCharacterEncoding("UTF-16");
         ObjectMapper objectMapper = new ObjectMapper();
         String body = itemService.getBody(req);
         try {

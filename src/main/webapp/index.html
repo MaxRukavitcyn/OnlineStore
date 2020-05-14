@@ -1,77 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>JQueryTest</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-		$(document).ready(function () {
-			$('#getitems').click(function () {
-				$.get("http://localhost:8080/items").done(function (data, status) {
-					console.log(data);
-					for (var i = 0; i < data.length; i++) {
-						$('<p>' + data[i].name + ' колличество ' + data[i].count + ' цена: ' + data[i].price + '</p>').insertAfter('#div2');
-					}
-
-				});
-			})
-		});
-
-		function myAlert() {
-			var login = $('#login').val();
-			var password = $('#password').val();
-			// alert(login);
-			// alert(password);
-			$('#div2').text('asdasdasd');
-			console.log('hello')
-		}
-
-		function myFunc() {
-			var div1 = $('#div1');
-			div1.text('hello from jquery');
-			$('<p> hello once again </p>').insertAfter('#div1');
-			// var val = div1.text();
-			// alert(val);
-		}
-		function sendData() {
-            var name = $("input[name='name']").val();
-			var price = $("input[name='price']").val();
-			var count = $("input[name='count']").val();
-			var json = '{"name":"'+name+'","price":'+price+',"count":'+count+'}';
-            $.post("http://localhost:8080/items", json, function () {
-                alert('даные отправлены');
-            }).fail(function (data, status, error) {
-                alert(error);
-            })
-		}
-    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
-
 <body>
-<div id="div1">
-    Hello World!
-</div>
-
-<div id="formAddItem" name="formAddItem">
-    <form accept-charset="UTF-8">
-        <!--<p>id: <input type="number" name="id"></p>-->
-        <p>Название товара: <input type="text" name="name"></p>
-        <p>Цена товара: <input type="number" name="price"></p>
-        <p>Колличество товара: <input type="number" name="count"></p>
-        <button type="button" onclick="sendData()" >отправить</button>
-    </form>
-</div>
-
-
-<input type="text" id="login" name="login">
-<input type="password" id="password" name="password">
-<button type="button" onclick="myAlert()" id="butSubmit"> submit</button>
-<br>
-
-<button type="button" onclick="myFunc()" id="butHello" name="button">push me</button>
-<br><br>
-<button type="button" id="getitems" name="getItems">get items</button>
-<div id="div2"></div>
-
+    <div>
+        <h1>Hello Online Store</h1>
+        <a href="/store">перейти в магазин</a>
+    </div>
 </body>
 </html>
